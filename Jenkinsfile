@@ -13,9 +13,10 @@ pipeline {
         stage('Build'){
             steps {
                 sh 'mvn clean package'
-                sh "docker build /var/lib/jenkins/workspace/Tomcat-with-Docker/ -t tomcatwebapp:${env.BUILD_ID}"
+                sh "docker build /var/lib/jenkins/workspace/my-node/ -t huynhvuong565/my-node:${env.BUILD_ID}"
                 //sh "docker build . -t tomcatwebapp:${env.BUILD_ID}"
-                sh "docker run -d  -p 8181:8080 --name tomcat-${env.BUILD_ID} tomcatwebapp:${env.BUILD_ID}"
+                sh "docker push huynhvuong565/my-node:${env.BUILD_ID}"
+                sh "cd /Documents/kubernetes-course-master/ingress | kubectl cr
             }
         }
     }
