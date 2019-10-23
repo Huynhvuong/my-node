@@ -16,7 +16,7 @@ pipeline {
                 sh "docker build /var/lib/jenkins/workspace/my-node/ -t huynhvuong565/my-node:${env.BUILD_ID}"
                 //sh "docker build . -t tomcatwebapp:${env.BUILD_ID}"
                 sh "docker push huynhvuong565/my-node:${env.BUILD_ID}"
-                sh "cd /Documents/kubernetes-course-master/ingress | kubectl cr
+                sh "cd /Documents/kubernetes-course-master/ingress | kubectl create -f ."
             }
         }
     }
