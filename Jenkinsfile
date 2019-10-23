@@ -12,6 +12,7 @@ pipeline {
     stages{
         stage('Build'){
             steps {
+                sh 'cd /var/lib/jenkins/workspace/Node-with-k8s/'
                 sh 'mvn clean package'
                 sh "docker build /var/lib/jenkins/workspace/Node-with-k8s/ -t huynhvuong565/my-node:${env.BUILD_ID}"
                 //sh "docker build . -t tomcatwebapp:${env.BUILD_ID}"
