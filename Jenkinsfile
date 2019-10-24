@@ -29,8 +29,7 @@ pipeline {
     }
     stage('Remove Unused docker image') {
       steps{
-        sh "cd /home/vuong/Documents/kubernetes-course-master/ingress"  
-        sh "kubectl create -f ."
+        sh "kubectl create -f /home/vuong/Documents/kubernetes-course-master/ingress"
         //sh "docker rmi $registry:$BUILD_NUMBER"
       }
     }
